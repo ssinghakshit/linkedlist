@@ -1,35 +1,52 @@
-#include <stdio.h>
-#include <stdlib.h>
-int main(){
-    int n_20051716=(rand()%10)+20;
-    printf("Array of %d elements\n",n_20051716);
-    int *a_20051716=(int *)realloc(a_20051716,n_20051716*sizeof(int));
-    for (int i_20051716=0;i_20051716<n_20051716;i_20051716++){
-        a_20051716[i_20051716]=rand()%100;
+#include<stdio.h>
+#include<stdlib.h>
+void main(){
+    int n=rand()%10;
+    int a[n];
+    printf("\nEnter array elements: ");
+    for(int i=0;i<n;i++){
+        a[i]=rand()%10;
     }
-    printf("Initial array is:\n");
-    for (int i_20051716=0;i_20051716<n_20051716;i_20051716++){
-        printf("%d ",a_20051716[i_20051716]);
+    int i,j;
+    printf("\nArray: ");
+    for(i=0;i<n;i++){
+        printf("%d ",a[i]);
     }
-    printf("\n");
-    int k_20051716=rand()%10+1,m_20051716=rand()%10+5;
-    printf("At index %d, will insert %d elements\n",k_20051716,m_20051716);
-    a_20051716=(int *)realloc(a_20051716,(n_20051716+m_20051716)*sizeof(int));
-    int x_20051716=a_20051716[k_20051716-1],d_20051716;
-    for(int j_20051716=k_20051716;j_20051716<k_20051716+m_20051716;j_20051716++)
-    for (int i_20051716=j_20051716-1;i_20051716<=k_20051716+n_20051716;i_20051716++){
-        d_20051716=a_20051716[i_20051716+1];
-        a_20051716[i_20051716+1]=x_20051716;
-        x_20051716=d_20051716;    
+    int temp;
+    for(i=1;i<n;i++){
+        if(a[i]<10){
+            temp=a[i-1]+1;
+            while(temp%10!=a[i]){
+                temp++;
+            }
+            a[i]=temp;
+        }
+        else if(a[i]>=10){
+            int rem,quo,first,second,check;
+            temp=a[i-1]+1;
+            first=a[i]%10;
+            second=a[i]/10;
+            rem=temp%10;
+            quo=temp/10;
+            while((quo!=second || rem!=first) && (quo!=first || rem!=second)){
+                check=0;
+                rem=temp%10;
+                quo=temp/10;
+                if(temp>=100){
+                    if(a[i]==quo || a[i]==quo+rem){
+                        check=1;
+                        break;
+                    }
+                }
+                temp++;
+            }
+            if(check==0){
+                temp--;
+            }a[i]=temp;
+        }
     }
-    for(int i_20051716=0;i_20051716<m_20051716;i_20051716++){
-        a_20051716[k_20051716+i_20051716]=rand()%10;
+    printf("\nArray: ");
+    for(i=0;i<n;i++){
+        printf("%d ",a[i]);
     }
-    printf("Final Array is:\n");
-    for (int i_20051716=0;i_20051716<m_20051716+n_20051716;i_20051716++){
-        printf("%d ",a_20051716[i_20051716]);
-    }
-    printf("\n");
-    free(a_20051716);
-    return 0;
 }
