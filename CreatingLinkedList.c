@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+//hello bot
 struct node
 {
     int data;
