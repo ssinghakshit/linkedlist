@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+//hello noobs
 struct node
 {
     int data_20051716;
