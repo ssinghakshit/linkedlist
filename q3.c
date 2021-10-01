@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+//hello dumb people
 void display(int **a_20051716,int x_20051716,int y_20051716,int k_20051716){
 	for(int i=x_20051716;i<x_20051716+k_20051716;i++){
 		for(int j=y_20051716;j<y_20051716+k_20051716;j++){
