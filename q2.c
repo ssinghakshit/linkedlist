@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+//hello stupid
 void main(){
     int n=rand()%10;
     int a[n];
